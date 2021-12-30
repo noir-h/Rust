@@ -2,8 +2,10 @@ pub mod sub_a;
 mod sub_b;
 
 const MAX_POINTS: u32 = 100_000;
-
+const MAX2_POINTS: u32 = 4294967295;
 pub fn run() {
+  println!("test{:p}", &MAX_POINTS);
+  println!("test{:p}", &MAX2_POINTS);
   println!("Here is vars module");
   // sub_a::func_a();
   // sub_b::func_b();

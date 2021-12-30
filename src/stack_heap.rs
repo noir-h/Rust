@@ -5,8 +5,7 @@ enum List {
 
 pub fn run() {
   // stack overflow => 8MBまでしか保存できない
-  // let a1: [u8; 9000000] = [1; 9000000];
-
+  // let a1: [u8; 7000000] = [1; 7000000];
   // Vector型
   let mut v1 = vec![1, 2, 3, 4];
   let v2 = vec![5, 6, 7, 8];
