@@ -18,14 +18,6 @@ impl<T, U> PointOnother<T, U> {
 
 pub fn run() {
   let number_list = vec![34, 50, 25, 100, 65];
-  // let mut largest = number_list[0];
-  // for number in number_list {
-  //   if number > largest {
-  //     largest = number;
-  //   }
-  // }
-  // println!("{}", largest);
-  // println!("{}", largest_i32(number_list));
   // ''で囲うとchar型になり4バイトのサイズを持つ
   let char_list = vec!['a', 'b', 'c', 'd'];
   println!("{}", largest(char_list));

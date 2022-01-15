@@ -9,6 +9,6 @@ fn main() {
        // stack_heap::run();
        // vars::sub_a::func_a();
        // ownership::run();
-       // generics::run();
-       lifetime::run();
+       generics::run();
+       // lifetime::run();
 }
