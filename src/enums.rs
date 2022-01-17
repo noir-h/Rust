@@ -8,9 +8,9 @@ enum OS {
 pub fn run() {
   let linux = OS::Linux(1991, String::from("Linux"));
   print_os_info(linux);
-  let windows = OS::Linux(1985, String::from("MicroSoft"));
+  let windows = OS::Windows(1985, String::from("MicroSoft"));
   print_os_info(windows);
-  let mac = OS::Linux(2001, String::from("Apple"));
+  let mac = OS::Mac(2001, String::from("Apple"));
   print_os_info(mac);
 }
 // pattern matchnig
