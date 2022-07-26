@@ -20,11 +20,13 @@ jobs:
         run: |
           pr_title='create pull request from github actions'
           base_branch='main'
+          can_create=${{ (github.ref == 'refs/heads/develop' && false) || true }}
           echo "::set-output name=count::$(gh pr list -S ${pr_title}' in:title' -B $base_branch | wc -l)"
           echo "::set-output name=pr_title::$pr_title"
           echo "::set-output name=base_branch::$base_branch"
+          echo "::set-output name=can_create::$can_create"
       # リリース用PRを作成
       - name: Create release pr
-        if: ${{ (steps.check_pr.outputs.count == 0) && ((github.ref == !'refs/heads/stage') }}
+        if: ${{ (steps.check_pr.outputs.count == 0) && ((steps.check_pr.outputs.can_create) }}
         run: |
           gh pr create -B ${{ steps.check_pr.outputs.base_branch }} -t ${{ steps.check_pr.outputs.pr_title }} -b ""
