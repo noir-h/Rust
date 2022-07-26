@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # リリース用PRが既に存在するかどうかをチェック
+      # リリース用PRが既に存在するかどうかをチェック!
       - name: Check if pr exists
         id: check_pr
         run: |
