@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # リリース用PRが既に存在するかどうかをチェック!
+      # PRが既に存在する場合かチェック
       - name: Check if pr exists
         id: check_pr
         run: |
@@ -25,7 +25,7 @@ jobs:
           echo "::set-output name=pr_title::$pr_title"
           echo "::set-output name=base_branch::$base_branch"
           echo "::set-output name=can_create::$can_create"
-      # リリース用PRを作成
+      # PRを作成
       - name: Create release pr
         if: ${{ (steps.check_pr.outputs.count == 0) && (steps.check_pr.outputs.can_create) }}
         run: |
