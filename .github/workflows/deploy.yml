@@ -18,7 +18,7 @@ jobs:
       - name: Check if pr exists
         id: check_pr
         run: |
-          pr_title='create pull request from github actions'
+          pr_title='"create" "pull" "request" "from" "github" "actions"'
           base_branch='main'
           can_create=${{ (github.ref == 'refs/heads/develop' && false) || true }}
           echo "::set-output name=count::$(gh pr list -S ${pr_title}' in:title' -B $base_branch | wc -l)"
