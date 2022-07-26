@@ -2,29 +2,15 @@ name: Create a pull request for release.
 
 on:
   push:
-    branches: release* 
+    branches: [ release* ]
 
 jobs:
   create-release-pr:
     runs-on: ubuntu-latest
 
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       - uses: actions/checkout@v2
-
-      # リリース用PRが既に存在するかどうかをチェック
-      - name: Check if pr exists
-        id: check_pr
-        run: |
-          pr_title=${{ (github.ref == 'refs/heads/stage' && 'Stage') || 'Develop' }}
-          base_branch=${{ (github.ref == 'refs/heads/stage' && 'main') || 'main' }}
-          echo "::set-output name=count::$(gh pr list -S ${pr_title}' in:title' -B $base_branch | wc -l)"
-          echo "::set-output name=pr_title::$pr_title"
-          echo "::set-output name=base_branch::$base_branch"
-      # リリース用PRを作成
       - name: Create release pr
-        if: ${{ steps.check_pr.outputs.count == 0 && github.ref == !'refs/heads/develop' }}
-        run: |
-          gh pr create -B ${{ steps.check_pr.outputs.base_branch }} -t ${{ steps.check_pr.outputs.pr_title }} -b ""
+        run: gh pr create -B "main" -t "Develop" -b ""
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
