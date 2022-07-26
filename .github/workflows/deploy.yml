@@ -27,6 +27,6 @@ jobs:
           echo "::set-output name=can_create::$can_create"
       # リリース用PRを作成
       - name: Create release pr
-        if: ${{ (steps.check_pr.outputs.count == 0) && ((steps.check_pr.outputs.can_create) }}
+        if: ${{ (steps.check_pr.outputs.count == 0) && (steps.check_pr.outputs.can_create) }}
         run: |
           gh pr create -B ${{ steps.check_pr.outputs.base_branch }} -t ${{ steps.check_pr.outputs.pr_title }} -b ""
