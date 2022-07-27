@@ -1,3 +1,4 @@
+# develop以外からrelease*ブランチへマージがあった時PRを作成
 name: Create a pull request from github actions
 
 on:
